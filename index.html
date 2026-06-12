@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>HQ — Imran</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f0d0a;
+    --panel:#171410;
+    --panel-2:#1d1913;
+    --line:rgba(212,162,78,.18);
+    --line-soft:rgba(236,228,212,.08);
+    --cream:#ece4d4;
+    --cream-dim:rgba(236,228,212,.55);
+    --cream-faint:rgba(236,228,212,.32);
+    --gold:#d4a24e;
+    --gold-soft:rgba(212,162,78,.12);
+    --green:#7fb069;
+    --red:#d4654e;
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Archivo",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:var(--sans);
+    min-height:100vh;
+    padding:clamp(16px,3vw,44px);
+    background-image:
+      radial-gradient(1200px 600px at 80% -10%, rgba(212,162,78,.07), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(212,162,78,.05), transparent 60%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+  }
+  .frame{max-width:1280px;margin:0 auto}
+
+  /* ---------- header ---------- */
+  header{
+    display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+    gap:12px;padding-bottom:22px;border-bottom:1px solid var(--line);
+    animation:rise .7s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .brand{display:flex;flex-direction:column;gap:6px}
+  .brand .kicker{
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
+    display:flex;align-items:center;gap:10px;
+  }
+  .brand .kicker::before{content:"";width:26px;height:1px;background:var(--gold)}
+  h1{
+    font-family:var(--serif);font-weight:380;font-size:clamp(34px,6vw,58px);
+    line-height:1.02;letter-spacing:-.01em;
+  }
+  h1 em{font-style:italic;color:var(--gold)}
+  .headside{text-align:right;display:flex;flex-direction:column;gap:4px}
+  .clock{font-family:var(--serif);font-size:clamp(26px,4vw,38px);font-weight:340;font-variant-numeric:tabular-nums}
+  .dateline{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim)}
+  .stamp{font-size:11px;color:var(--cream-faint)}
+  .stamp b{color:var(--gold);font-weight:500}
+  .refresh-btn{
+    margin-top:7px;align-self:flex-end;display:inline-flex;align-items:center;gap:7px;
+    background:none;border:1px solid var(--line);color:var(--gold);
+    font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    padding:7px 14px;border-radius:99px;cursor:pointer;transition:all .2s;
+  }
+  .refresh-btn:hover{background:var(--gold);color:var(--ink)}
+  .refresh-btn:disabled{opacity:.45;cursor:default;background:none;color:var(--gold)}
+  .news-n{
+    font-family:var(--serif);font-size:18px;font-weight:380;color:var(--gold);
+    width:26px;flex-shrink:0;text-align:right;line-height:1.3;font-variant-numeric:tabular-nums;
+  }
+
+  /* ---------- grid ---------- */
+  .grid{
+    display:grid;gap:14px;margin-top:22px;
+    grid-template-columns:repeat(12,1fr);
+    grid-template-areas:
+      "wx wx wx wx mt mt mt mt mt ta ta ta"
+      "cal cal cal cal mt mt mt mt mt ta ta ta"
+      "mail mail mail mail wa wa wa wa nw nw nw nw";
+  }
+  .wx{grid-area:wx}.mt{grid-area:mt}.ta{grid-area:ta}.cal{grid-area:cal}.mail{grid-area:mail}.wa{grid-area:wa}.nw{grid-area:nw}
+  @media(max-width:980px){
+    .grid{grid-template-columns:1fr;grid-template-areas:"wx" "ta" "cal" "mt" "wa" "mail" "nw"}
+  }
+
+  .panel{
+    background:linear-gradient(180deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line-soft);
+    border-radius:4px;
+    padding:20px 20px 18px;
+    position:relative;
+    animation:rise .7s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .panel::before{
+    content:"";position:absolute;top:0;left:20px;right:20px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--line),transparent);
+  }
+  .panel:nth-child(1){animation-delay:.05s}.panel:nth-child(2){animation-delay:.12s}
+  .panel:nth-child(3){animation-delay:.19s}.panel:nth-child(4){animation-delay:.26s}
+  .panel:nth-child(5){animation-delay:.33s}.panel:nth-child(6){animation-delay:.4s}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  .ptitle{
+    display:flex;align-items:baseline;justify-content:space-between;
+    margin-bottom:14px;
+  }
+  .ptitle h2{
+    font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);
+  }
+  .ptitle h2 a{color:inherit;text-decoration:none}
+  .ptitle h2 a:hover{text-decoration:underline;text-underline-offset:3px}
+  .ptitle .sub{font-size:11px;color:var(--cream-faint)}
+
+  /* ---------- weather ---------- */
+  .wx-now{display:flex;align-items:flex-start;gap:14px}
+  .wx-temp{font-family:var(--serif);font-size:64px;font-weight:320;line-height:.95}
+  .wx-temp sup{font-size:24px;color:var(--gold)}
+  .wx-meta{padding-top:8px;font-size:13px;color:var(--cream-dim);line-height:1.6}
+  .wx-meta b{color:var(--cream);font-weight:500}
+  .wx-hours{display:flex;gap:4px;margin-top:16px;border-top:1px solid var(--line-soft);padding-top:12px}
+  .wx-h{flex:1;text-align:center;font-size:11px;color:var(--cream-dim)}
+  .wx-h b{display:block;font-size:14px;color:var(--cream);font-weight:500;margin-top:2px}
+  .wx-h span{display:block;font-size:14px;margin:2px 0}
+
+  /* ---------- mt5 ---------- */
+  .mt-top{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;margin-bottom:4px}
+  .mt-equity{font-family:var(--serif);font-size:clamp(40px,5vw,56px);font-weight:340;line-height:1}
+  .mt-equity .cur{font-size:.45em;color:var(--gold);vertical-align:.6em;margin-right:2px}
+  .pl{font-size:15px;font-weight:600;padding:4px 10px;border-radius:99px;margin-bottom:8px}
+  .pl.neg{color:var(--red);background:rgba(212,101,78,.12)}
+  .pl.pos{color:var(--green);background:rgba(127,176,105,.12)}
+  .mt-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0;padding:12px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+  @media(max-width:560px){.mt-stats{grid-template-columns:repeat(2,1fr);gap:14px}}
+  .stat .k{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-faint)}
+  .stat .v{font-size:16px;font-weight:500;margin-top:3px;font-variant-numeric:tabular-nums}
+  table.pos{width:100%;border-collapse:collapse;font-size:13px}
+  table.pos th{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-faint);font-weight:500;text-align:left;padding:6px 8px 6px 0}
+  table.pos td{padding:8px 8px 8px 0;border-top:1px solid var(--line-soft);font-variant-numeric:tabular-nums}
+  td.neg{color:var(--red)}td.pos-v{color:var(--green)}
+  .badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;padding:2px 7px;border-radius:3px;background:var(--gold-soft);color:var(--gold)}
+  .mt-deal{margin-top:10px;font-size:12px;color:var(--cream-faint)}
+  .mt-deal b{color:var(--green);font-weight:500}
+
+  /* ---------- lists ---------- */
+  ul.rows{list-style:none}
+  ul.rows li{
+    display:flex;gap:12px;align-items:flex-start;
+    padding:11px 0;border-top:1px solid var(--line-soft);
+    overflow:hidden;
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  ul.rows li:first-child{border-top:none;padding-top:2px}
+  ul.rows li.bye{opacity:0;transform:translateX(24px)}
+  .dot{width:7px;height:7px;border-radius:99px;margin-top:6px;flex-shrink:0;background:var(--cream-faint)}
+  .dot.urgent{background:var(--red);box-shadow:0 0 0 3px rgba(212,101,78,.15)}
+  .dot.gold{background:var(--gold)}
+  a.rlink{display:flex;gap:12px;align-items:flex-start;flex:1;min-width:0;color:inherit;text-decoration:none}
+  a.rlink:hover .t,a.rlink:active .t{color:var(--gold)}
+  .row-main{flex:1;min-width:0}
+  .row-main .t{font-size:14px;line-height:1.45;transition:color .15s}
+  .row-main .s{font-size:11.5px;color:var(--cream-faint);margin-top:2px}
+  .row-side{font-size:11px;color:var(--cream-faint);white-space:nowrap;padding-top:2px}
+  .x{
+    flex-shrink:0;width:26px;height:26px;border-radius:99px;cursor:pointer;
+    background:none;border:1px solid var(--line-soft);color:var(--cream-faint);
+    font-size:13px;line-height:1;font-family:var(--sans);
+    transition:all .15s;
+  }
+  .x:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+  .x.add{font-size:15px;margin-right:-4px}
+  .x.add.sent{background:rgba(127,176,105,.16);border-color:transparent;color:var(--green);cursor:default}
+  #toast{
+    position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(80px);
+    background:var(--gold);color:var(--ink);font-size:13px;font-weight:600;
+    padding:10px 18px;border-radius:99px;box-shadow:0 8px 30px rgba(0,0,0,.5);
+    transition:transform .35s cubic-bezier(.2,.7,.2,1);z-index:99;white-space:nowrap;
+  }
+  #toast.show{transform:translateX(-50%) translateY(0)}
+  .tag{font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:3px;margin-left:6px;vertical-align:1px}
+  .tag.reply{background:rgba(212,101,78,.14);color:var(--red)}
+  .tag.today{background:rgba(212,101,78,.14);color:var(--red)}
+  .tag.tmrw{background:var(--gold-soft);color:var(--gold)}
+  .tag.imp{background:var(--gold-soft);color:var(--gold)}
+  .tag.sec{background:rgba(127,176,105,.12);color:var(--green)}
+  .unread-pill{font-size:11px;color:var(--gold)}
+  .cal-time{
+    font-family:var(--serif);font-size:20px;font-weight:380;color:var(--gold);
+    width:64px;flex-shrink:0;line-height:1.1;
+  }
+  .cal-time small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-faint);margin-top:2px}
+  .cleared{
+    margin-top:10px;padding-top:8px;border-top:1px dashed var(--line-soft);
+    font-size:11px;color:var(--cream-faint);cursor:pointer;letter-spacing:.06em;
+    background:none;border-left:none;border-right:none;border-bottom:none;display:block;width:100%;text-align:left;font-family:var(--sans);
+  }
+  .cleared:hover{color:var(--gold)}
+  .allclear{font-size:13px;color:var(--cream-faint);padding:6px 0;font-style:italic;font-family:var(--serif)}
+
+  footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--line-soft);
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:11px;color:var(--cream-faint);letter-spacing:.06em}
+  footer b{color:var(--gold);font-weight:500}
+</style>
+</head>
+<body>
+<div class="frame">
+  <header>
+    <div class="brand">
+      <span class="kicker">Private · Daily Brief</span>
+      <h1 id="greet">Good evening, <em>Imran</em></h1>
+    </div>
+    <div class="headside">
+      <div class="clock" id="clock">—:—</div>
+      <div class="dateline" id="dateline"></div>
+      <div class="stamp">data refreshed <b id="stamp"></b></div>
+      <button class="refresh-btn" id="refresh-btn" title="Ask the home PC to pull fresh data and republish">⟳ refresh data</button>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <section class="panel wx">
+      <div class="ptitle"><h2>Weather</h2><span class="sub" id="wx-place"></span></div>
+      <div class="wx-now">
+        <div class="wx-temp" id="wx-temp">—<sup>°</sup></div>
+        <div class="wx-meta" id="wx-meta">Loading forecast…</div>
+      </div>
+      <div class="wx-hours" id="wx-hours"></div>
+    </section>
+
+    <section class="panel mt">
+      <div class="ptitle"><h2>MT5 · Trading</h2><span class="sub" id="mt-type"></span></div>
+      <div class="mt-top">
+        <div class="mt-equity"><span class="cur" id="mt-cur">£</span><span id="mt-equity">—</span></div>
+        <div class="pl neg" id="mt-pl">—</div>
+      </div>
+      <div class="mt-stats" id="mt-stats"></div>
+      <table class="pos">
+        <thead><tr><th>Position</th><th>Size</th><th>Open</th><th style="text-align:right">P/L</th></tr></thead>
+        <tbody id="mt-positions"></tbody>
+      </table>
+      <div class="mt-deal" id="mt-deal"></div>
+    </section>
+
+    <section class="panel ta">
+      <div class="ptitle"><h2>Action Items</h2><span class="sub" id="ta-count"></span></div>
+      <ul class="rows" id="ta-list"></ul>
+      <button class="cleared" id="ta-cleared" hidden></button>
+    </section>
+
+    <section class="panel cal">
+      <div class="ptitle"><h2><a href="https://calendar.google.com" target="_blank" rel="noopener">Schedule ↗</a></h2><span class="sub">next 7 days</span></div>
+      <ul class="rows" id="cal-list"></ul>
+      <button class="cleared" id="cal-cleared" hidden></button>
+    </section>
+
+    <section class="panel mail">
+      <div class="ptitle"><h2><a id="mail-open" href="https://mail.google.com" target="_blank" rel="noopener">Inbox ↗</a></h2><span class="unread-pill" id="mail-unread"></span></div>
+      <ul class="rows" id="mail-list"></ul>
+      <button class="cleared" id="mail-cleared" hidden></button>
+    </section>
+
+    <section class="panel nw">
+      <div class="ptitle"><h2>The Brief</h2><span class="sub">top 10 from your newsletters</span></div>
+      <ul class="rows" id="nw-list"></ul>
+      <button class="cleared" id="nw-cleared" hidden></button>
+    </section>
+
+    <section class="panel wa">
+      <div class="ptitle"><h2><a id="wa-open" href="https://web.whatsapp.com" target="_blank" rel="noopener">WhatsApp ↗</a></h2><span class="sub">latest + waiting on you</span></div>
+      <ul class="rows" id="wa-list"></ul>
+      <button class="cleared" id="wa-cleared" hidden></button>
+    </section>
+
+  </div>
+
+  <footer>
+    <span>HQ · built for one · cleared items are remembered on this device</span>
+    <span>say <b>“refresh dashboard”</b> to Claude to update</span>
+  </footer>
+</div>
+<div id="toast"></div>
+
+<script>
+const DATA = {"generatedAt":"2026-06-12T18:14:23+01:00","owner":"Imran","location":{"name":"Wolverhampton","lat":52.587,"lon":-2.128},"mt5":{"currency":"GBP","balance":121.14,"equity":77.29,"floatingPL":-43.85,"marginLevel":248.8,"freeMargin":46.22,"leverage":"1:30","accountType":"contest","positions":[{"symbol":"Crude_SB","type":"BUY","volume":0.03,"open":103.556,"opened":"20 May","pl":-52.1}],"recentDeals":[{"date":"19 May","symbol":"Crude_SB","action":"Closed","pl":13.01}]},"calendar":[{"id":"cal-airbnb-call-0612","day":"Fri 12 Jun","time":"14:30","title":"Airbnb Income Breakthrough Call","with":"Callum Murch","note":"Zoom — link in calendar invite","link":"https://calendar.google.com/calendar/u/0/r/day/2026/6/12"},{"id":"cal-sports-day-pe-0615","day":"Mon 15 Jun","time":"07:00","title":"Sports day PE uniform","with":"Roksana","note":"Invite from Roksana — not yet accepted","link":"https://calendar.google.com/calendar/u/0/r/day/2026/6/15"},{"id":"cal-doc-appt-0617","day":"Wed 17 Jun","time":"15:30","title":"Doc appt","with":"You","note":"","link":"https://calendar.google.com/calendar/u/0/r/day/2026/6/17"},{"id":"cal-wieslawa-0618","day":"Thu 18 Jun","time":"10:00","title":"Wieslawa 10am","with":"You","note":"","link":"https://calendar.google.com/calendar/u/0/r/day/2026/6/18"},{"id":"cal-inset-day-0619","day":"Fri 19 Jun","time":"08:00","title":"Inset Day","with":"Roksana","note":"","link":"https://calendar.google.com/calendar/u/0/r/day/2026/6/19"},{"id":"cal-book-holiday-0619","day":"Fri 19 Jun","time":"All day","title":"Book holiday","with":"You","note":"","link":"https://calendar.google.com/calendar/u/0/r/day/2026/6/19"}],"tasks":[{"id":"todoist-6gqVGgr5RMmcxRJf","todoistId":"6gqVGgr5RMmcxRJf","label":"Send ID documents to Complex Law for your claim","source":"Todoist","urgent":true,"link":"https://app.todoist.com/app/task/6gqVGgr5RMmcxRJf"},{"id":"todoist-6gqVGvmP88qXJqQ7","todoistId":"6gqVGvmP88qXJqQ7","label":"Do Horizon Homes social media setup graphics","source":"Todoist","urgent":false,"link":"https://app.todoist.com/app/task/6gqVGvmP88qXJqQ7","dueTag":"today"},{"id":"todoist-6gqXP2F84H4pcw7f","todoistId":"6gqXP2F84H4pcw7f","label":"Send Barry (Ultra Precision Roofer) his invoice","source":"Todoist","urgent":true,"link":"https://app.todoist.com/app/task/6gqXP2F84H4pcw7f"},{"id":"todoist-6gr4vqmQVFrqFF6f","todoistId":"6gr4vqmQVFrqFF6f","label":"Renew mortgage 77 reginald road","source":"Todoist","urgent":false,"link":"https://app.todoist.com/app/task/6gr4vqmQVFrqFF6f"},{"id":"task-instagram-security","label":"Check Instagram account — password was changed & profile scheduled for deletion 11 Jul","source":"Email · Instagram Security, Thu 11 Jun","urgent":true,"link":"https://mail.google.com/mail/u/0/#all/19eb78382be6265e"},{"id":"task-jf-call-prep","label":"Prep for today's Airbnb property call at 14:30","source":"Email · JF Property Partners, Fri","urgent":false,"dueTag":"today","dueText":"Fri 12 Jun","link":"https://mail.google.com/mail/u/0/#all/19eb1b9da0c495d4"},{"id":"task-staffordshire-windows","label":"Reply to Staffordshire Windows — glass pane replacement job","source":"Your list · WhatsApp 30 Apr","urgent":false,"link":"https://web.whatsapp.com/"},{"id":"task-charlotte-hle","label":"Get back to Charlotte at High Living Estates re investing","source":"Your list · WhatsApp 19 May","urgent":false,"link":"https://web.whatsapp.com/"},{"id":"task-imran-sarkar","label":"Reply to Imran Sarkar — “lemme know if you’re free”","source":"Your list · WhatsApp 21 May","urgent":false,"link":"https://web.whatsapp.com/"}],"email":{"unreadRecent":20,"openInbox":"https://mail.google.com/mail/u/0/#inbox","items":[{"id":"19eb7857a55acfea","from":"Instagram","subject":"Your Instagram profile is scheduled for deletion","time":"Thu 17:30","unread":false,"flag":"warning","link":"https://mail.google.com/mail/u/0/#all/19eb7857a55acfea"},{"id":"19eb783eca35fd2d","from":"Instagram","subject":"Your Instagram password has been changed","time":"Thu 17:28","unread":false,"flag":"warning","link":"https://mail.google.com/mail/u/0/#all/19eb783eca35fd2d"},{"id":"19eb973df3a42ef0","from":"Joost · JF Property Partners","subject":"Insight into our £1.5m p/y Airbnb Biz — watch before your call","time":"Fri 01:30","unread":true,"flag":"important","link":"https://mail.google.com/mail/u/0/#all/19eb973df3a42ef0"},{"id":"19eb88c716bde7cb","from":"Pepperstone","subject":"Daily Confirmation — 11 Jun (sell 0.01 Crude_SB)","time":"Thu 22:17","unread":true,"flag":"","link":"https://mail.google.com/mail/u/0/#all/19eb88c716bde7cb"},{"id":"19eb905d687e99bd","from":"Marketing Max","subject":"BREAKING: 🚀 SpaceX Prices a Record $75Bn IPO","time":"Fri 00:30","unread":true,"flag":"","link":"https://mail.google.com/mail/u/0/#all/19eb905d687e99bd"},{"id":"19eb6cc2edea1ad8","from":"Superhuman","subject":"👀 Anthropic’s CEO calls for change","time":"Thu 14:07","unread":true,"flag":"","link":"https://mail.google.com/mail/u/0/#all/19eb6cc2edea1ad8"}]},"news":[{"id":"news-spacex-ipo-live","title":"SpaceX prices largest-ever IPO at $135/share — $75B raised, trades today as SPCX","summary":"Selling 555M shares values the company at ~$1.75T, eclipsing Saudi Aramco's $24.9B 2019 record; Musk holds 82%+ voting control and becomes the world's first trillionaire.","source":"Marketing Max","link":"https://mail.google.com/mail/u/0/#all/19eb905d687e99bd"},{"id":"news-stocks-rebound","title":"US stocks bounce: Russell 2000 +3%, Nasdaq +2.54% Thursday after AI sell-off","summary":"Dip-buyers returned led by chipmakers — Micron +12%, Marvell +12% — but S&P 500 tech still down ~10% over five sessions as the AI trade continues to unwind.","source":"Marketing Max","link":"https://mail.google.com/mail/u/0/#all/19eb905d687e99bd"},{"id":"news-coinbase-ai-agents","title":"Coinbase launches AI trading agents — rebalance your portfolio via Claude or ChatGPT","summary":"Agents run on the open x402 payment protocol (built with Anthropic, AWS, Circle, Near) and can trade, pay for research, and operate in a walled sandbox — days after Robinhood's own launch.","source":"Marketing Max","link":"https://mail.google.com/mail/u/0/#all/19eb905d687e99bd"},{"id":"news-linkedin-creator-marketplace","title":"LinkedIn Creator Marketplace goes live — brands find vetted creators inside Campaign Manager","summary":"Launching US and Canada first, with in-house agency BrandWorks also debuting; LinkedIn's move to keep 1.3B members posting and pull creators from Instagram and TikTok.","source":"Marketing Max","link":"https://mail.google.com/mail/u/0/#all/19eb905d687e99bd"},{"id":"news-dario-ai-regulation","title":"Dario Amodei calls for mandatory third-party testing of frontier AI models","summary":"Rare personal essay argues AI progress is outpacing political frameworks — outlines five policy areas to reimagine including binding regulation and third-party audits of the most capable models.","source":"Superhuman","link":"https://mail.google.com/mail/u/0/#all/19eb6cc2edea1ad8"},{"id":"news-fable-microsoft","title":"Microsoft blocks Claude Fable 5 internally over 30-day conversation data retention","summary":"Data retention rules (30 days for conversations, up to 2 years for flagged content) plus safety classifiers blocking biology, chemistry, and cybersecurity prompts triggered the pullback.","source":"Superhuman","link":"https://mail.google.com/mail/u/0/#all/19eb6cc2edea1ad8"},{"id":"news-diffusion-gemma","title":"Google open-sources DiffusionGemma — 256 tokens in parallel, up to 4× faster inference","summary":"Replaces the standard one-token-at-a-time approach; could be a major breakthrough for real-time AI applications running on dedicated GPUs.","source":"Superhuman","link":"https://mail.google.com/mail/u/0/#all/19eb6cc2edea1ad8"},{"id":"news-oracle-cloud","title":"Oracle cloud revenue jumps 47% to record $19.2B quarter","summary":"IaaS surged 93% to $5.8B and backlog swelled to $638B, yet the stock fell 7% after hours as free cash flow ran negative $23.7B for the year.","source":"Marketing Max","link":"https://mail.google.com/mail/u/0/#all/19eb3df8096e5816"},{"id":"news-amazon-ai-debt","title":"Amazon borrows $17.5B for AI — $31.5B raised across big tech in 48 hours","summary":"Part of a wider hyperscaler debt wave (Alphabet $80B, Meta $30B) as companies race to fund AI data centres on borrowed money.","source":"Marketing Max","link":"https://mail.google.com/mail/u/0/#all/19eb3df8096e5816"},{"id":"news-openai-ipo","title":"OpenAI files for IPO one week after Anthropic","summary":"Confidential S-1 filed; no timing set and may wait — Sam Altman noted things they want to do are 'easier as a private company' for now.","source":"Superhuman","link":"https://mail.google.com/mail/u/0/#all/19eac7dd51b2d4bb"}],"whatsapp":{"openApp":"https://web.whatsapp.com/","items":[{"id":"wa-adrian-1848","from":"Adrian Webb","msg":"Hello sir… livin the dream TBH. How’s Imran","time":"18:48","needsReply":true},{"id":"wa-dad-1838","from":"Dad","msg":"Thanks for the Cap.","time":"18:38","needsReply":false},{"id":"wa-roksana-1815","from":"Roksana","msg":"Sent a Facebook link","time":"18:15","needsReply":false},{"id":"wa-saidul-1602","from":"Saidul Bhai","msg":"ok asking them now","time":"16:02","needsReply":false},{"id":"wa-westmid-1006","from":"West Midlands (group)","msg":"AndyC: keep an eye on your commission report — they’ll auto-deduct the DOR","time":"10:06","needsReply":false},{"id":"wa-ibon-0917","from":"Ibon Personal","msg":"Drain*","time":"09:17","needsReply":false},{"id":"wa-barry-29may","from":"Barry — Ultra Precision Roofer","msg":"Can you advise when you’re gonna send me the invoice please?","time":"29 May","needsReply":true},{"id":"wa-sufi-27may","from":"Sufi Dubai","msg":"I’m free now","time":"27 May","needsReply":true}]},"todoistToken":"dfb2ebe8a0057df0d26c9c6e0fa05ca21e0e27e0","refreshToken":"k3v9-rq-mh72-dash"};
+
+/* ---------- clock + greeting ---------- */
+function tickClock(){
+  const n = new Date();
+  document.getElementById('clock').textContent =
+    n.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('dateline').textContent =
+    n.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+  const h = n.getHours();
+  const part = h<5?'Good night':h<12?'Good morning':h<17?'Good afternoon':'Good evening';
+  document.getElementById('greet').innerHTML = part + ', <em>' + DATA.owner + '</em>';
+}
+tickClock(); setInterval(tickClock, 15000);
+
+const gen = new Date(DATA.generatedAt);
+document.getElementById('stamp').textContent =
+  gen.toLocaleDateString('en-GB',{day:'numeric',month:'short'}) + ' ' +
+  gen.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+
+const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- dismiss state (per device) ---------- */
+const DKEY = 'hq-dismissed-v1';
+let dismissed = new Set(JSON.parse(localStorage.getItem(DKEY) || '[]'));
+function persistDismissed(){ localStorage.setItem(DKEY, JSON.stringify([...dismissed])); }
+
+/* tasks that came from Todoist: dismissing them completes the real task */
+const TODOIST_BY_KEY = {};
+(DATA.tasks || []).forEach(t => { if(t.todoistId) TODOIST_BY_KEY[t.id] = t.todoistId; });
+
+function dismiss(key, li){
+  const tid = TODOIST_BY_KEY[key];
+  if(tid && DATA.todoistToken){
+    fetch('https://api.todoist.com/api/v1/tasks/' + tid + '/close', {
+      method:'POST', headers:{ 'Authorization':'Bearer ' + DATA.todoistToken }
+    }).then(r => { if(r.ok) toast('Completed in Todoist ✓'); }).catch(()=>{});
+  }
+  li.classList.add('bye');
+  setTimeout(()=>{ dismissed.add(key); persistDismissed(); renderLists(); }, 280);
+}
+function restorePanel(keys){
+  keys.forEach(k=>dismissed.delete(k));
+  persistDismissed(); renderLists();
+}
+
+/* ---------- Todoist ---------- */
+const sentToTodoist = new Set(JSON.parse(localStorage.getItem('hq-todoist-v1') || '[]'));
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toast._h); toast._h = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+function addToTodoist(key, todo, btn){
+  if(!DATA.todoistToken){ toast('Todoist not connected yet — give Claude your API token'); return; }
+  btn.disabled = true; btn.textContent = '…';
+  fetch('https://api.todoist.com/api/v1/tasks', {
+    method:'POST',
+    headers:{ 'Content-Type':'application/json', 'Authorization':'Bearer ' + DATA.todoistToken },
+    body: JSON.stringify(todo)
+  }).then(r=>{
+    if(!r.ok) throw new Error(r.status);
+    btn.textContent = '✓'; btn.classList.add('sent'); btn.title = 'In Todoist';
+    sentToTodoist.add(key);
+    localStorage.setItem('hq-todoist-v1', JSON.stringify([...sentToTodoist]));
+    toast('Added to Todoist ✓');
+  }).catch(()=>{
+    btn.disabled = false; btn.textContent = '+';
+    toast('Couldn’t reach Todoist — try again');
+  });
+}
+
+/* row factory: link wraps the content, + sends to Todoist, ✓ dismisses */
+function makeRow(key, link, mainHTML, sideHTML, todo){
+  const li = document.createElement('li');
+  const a = document.createElement(link ? 'a' : 'div');
+  a.className = 'rlink';
+  if(link){ a.href = link; a.target = '_blank'; a.rel = 'noopener'; }
+  a.innerHTML = mainHTML;
+  li.appendChild(a);
+  if(sideHTML){
+    const side = document.createElement('div');
+    side.className = 'row-side'; side.innerHTML = sideHTML;
+    li.appendChild(side);
+  }
+  if(todo){
+    const add = document.createElement('button');
+    add.className = 'x add';
+    if(sentToTodoist.has(key)){ add.textContent = '✓'; add.classList.add('sent'); add.disabled = true; add.title = 'In Todoist'; }
+    else { add.textContent = '+'; add.title = 'Add to Todoist'; add.addEventListener('click', e=>{ e.stopPropagation(); addToTodoist(key, todo, add); }); }
+    li.appendChild(add);
+  }
+  const x = document.createElement('button');
+  x.className = 'x'; x.textContent = '✓'; x.title = 'Mark done / dismiss';
+  x.addEventListener('click', e=>{ e.stopPropagation(); dismiss(key, li); });
+  li.appendChild(x);
+  return li;
+}
+
+function fillList(listId, clearedId, items, rowFn, emptyText){
+  const ul = document.getElementById(listId);
+  const btn = document.getElementById(clearedId);
+  ul.innerHTML = '';
+  const live = items.filter(x=>!dismissed.has(x.id));
+  const gone = items.filter(x=>dismissed.has(x.id));
+  if(!live.length){
+    const li = document.createElement('li');
+    li.innerHTML = `<div class="allclear">${emptyText}</div>`;
+    ul.appendChild(li);
+  } else {
+    live.forEach(x=>ul.appendChild(rowFn(x)));
+  }
+  if(gone.length){
+    btn.hidden = false;
+    btn.textContent = `${gone.length} cleared — tap to restore`;
+    btn.onclick = ()=>restorePanel(gone.map(g=>g.id));
+  } else { btn.hidden = true; }
+  return live;
+}
+
+/* ---------- dismissible panels ---------- */
+function renderLists(){
+  const dueRank = { overdue:0, today:1, tomorrow:2 };
+  const dueChip = t => t.dueTag==='overdue' ? '<span class="tag today">overdue</span>'
+    : t.dueTag==='today' ? '<span class="tag today">due today</span>'
+    : t.dueTag==='tomorrow' ? '<span class="tag tmrw">tomorrow</span>' : '';
+  const sortedTasks = [...DATA.tasks].sort((a,b)=>{
+    const ra = a.dueTag in dueRank ? dueRank[a.dueTag] : 3;
+    const rb = b.dueTag in dueRank ? dueRank[b.dueTag] : 3;
+    if(ra !== rb) return ra - rb;
+    return (b.urgent?1:0) - (a.urgent?1:0);
+  });
+  const tasks = fillList('ta-list','ta-cleared', sortedTasks, t =>
+    makeRow(t.id, t.link,
+      `<span class="dot ${t.urgent?'urgent':''}"></span>
+       <div class="row-main"><div class="t">${esc(t.label)}${dueChip(t)}</div>
+       <div class="s">${esc(t.source)}${t.dueText?' · due '+esc(t.dueText):''}</div></div>`,
+      null,
+      t.todoistId ? null : { content: t.label, description: t.source + (t.link ? '\n' + t.link : ''), priority: t.urgent ? 4 : 1 }),
+    'All clear. Nothing needs you.');
+  document.getElementById('ta-count').textContent = tasks.length + ' open';
+
+  fillList('cal-list','cal-cleared', DATA.calendar, e =>
+    makeRow(e.id, e.link,
+      `<div class="cal-time">${esc(e.time)}<small>${esc(e.day)}</small></div>
+       <div class="row-main"><div class="t">${esc(e.title)}</div><div class="s">${esc(e.with)}${e.note?' · '+esc(e.note):''}</div></div>`,
+      null,
+      { content: e.title, description: 'With ' + e.with + (e.link ? '\n' + e.link : ''), due_string: e.day + ' ' + e.time }),
+    'Nothing scheduled — clear week.');
+
+  const tag = f => f==='important' ? '<span class="tag imp">important</span>'
+            : f==='security' ? '<span class="tag sec">security</span>' : '';
+  fillList('mail-list','mail-cleared', DATA.email.items, e =>
+    makeRow(e.id, e.link,
+      `<span class="dot ${e.unread?'gold':''}"></span>
+       <div class="row-main"><div class="t">${esc(e.subject)}${tag(e.flag)}</div><div class="s">${esc(e.from)}</div></div>`,
+      esc(e.time),
+      { content: 'Email: ' + e.subject, description: 'From ' + e.from + (e.link ? '\n' + e.link : ''), priority: e.flag==='important' ? 4 : 1 }),
+    'Inbox handled.');
+  document.getElementById('mail-unread').textContent = DATA.email.unreadRecent + ' unread (3 days)';
+  if(DATA.email.openInbox) document.getElementById('mail-open').href = DATA.email.openInbox;
+
+  const waItems = [...DATA.whatsapp.items].sort((a,b)=>(b.needsReply?1:0)-(a.needsReply?1:0));
+  fillList('wa-list','wa-cleared', waItems, w =>
+    makeRow(w.id, w.link || DATA.whatsapp.openApp,
+      `<span class="dot ${w.needsReply?'urgent':''}"></span>
+       <div class="row-main"><div class="t">${esc(w.from)}${w.needsReply?'<span class="tag reply">reply</span>':''}</div><div class="s">${esc(w.msg)}</div></div>`,
+      esc(w.time),
+      { content: 'Reply to ' + w.from + ' (WhatsApp)', description: '“' + w.msg + '”', priority: w.needsReply ? 3 : 1 }),
+    'No chats waiting.');
+  if(DATA.whatsapp.openApp) document.getElementById('wa-open').href = DATA.whatsapp.openApp;
+
+  (DATA.news || []).forEach((n,i)=>n._n = i+1);
+  fillList('nw-list','nw-cleared', DATA.news || [], n =>
+    makeRow(n.id, n.link,
+      `<div class="news-n">${n._n}</div>
+       <div class="row-main"><div class="t">${esc(n.title)}</div><div class="s">${esc(n.summary)} — ${esc(n.source)}</div></div>`,
+      null,
+      { content: 'Read: ' + n.title, description: n.summary + (n.link ? '\n' + n.link : '') }),
+    'You’re all caught up.');
+}
+renderLists();
+
+/* ---------- refresh request button ---------- */
+document.getElementById('refresh-btn').addEventListener('click', function(){
+  const btn = this;
+  btn.disabled = true; btn.textContent = '⟳ requested ✓';
+  fetch('/', {
+    method:'POST',
+    headers:{ 'Content-Type':'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ 'form-name':'refresh-request', token: DATA.refreshToken || '', requested: new Date().toISOString() }).toString()
+  }).then(r=>{
+    toast(r.ok ? 'Refreshing — trading & tasks update within ~5 min (PC must be on). Reload the page after.' : 'Request didn’t go through — try again');
+    if(!r.ok){ btn.disabled = false; btn.textContent = '⟳ refresh data'; }
+  }).catch(()=>{
+    toast('Request failed — are you offline?');
+    btn.disabled = false; btn.textContent = '⟳ refresh data';
+  });
+  setTimeout(()=>{ btn.disabled = false; btn.textContent = '⟳ refresh data'; }, 90000);
+});
+
+/* ---------- MT5 ---------- */
+(function(){
+  const m = DATA.mt5;
+  const sym = m.currency === 'GBP' ? '£' : m.currency + ' ';
+  document.getElementById('mt-cur').textContent = sym;
+  document.getElementById('mt-type').textContent = m.accountType + ' · ' + m.leverage;
+  document.getElementById('mt-equity').textContent = m.equity.toFixed(2);
+  const pl = document.getElementById('mt-pl');
+  pl.textContent = (m.floatingPL>=0?'▲ +':'▼ −') + sym + Math.abs(m.floatingPL).toFixed(2);
+  pl.className = 'pl ' + (m.floatingPL>=0?'pos':'neg');
+  document.getElementById('mt-stats').innerHTML = [
+    ['Balance', sym + m.balance.toFixed(2)],
+    ['Free margin', sym + m.freeMargin.toFixed(2)],
+    ['Margin level', m.marginLevel.toFixed(0) + '%'],
+    ['Open trades', m.positions.length]
+  ].map(([k,v])=>`<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
+  document.getElementById('mt-positions').innerHTML = m.positions.map(p=>`
+    <tr>
+      <td><span class="badge">${esc(p.type)}</span> ${esc(p.symbol)}</td>
+      <td>${p.volume}</td>
+      <td>${p.open} <span style="color:var(--cream-faint)">· ${esc(p.opened)}</span></td>
+      <td style="text-align:right" class="${p.pl>=0?'pos-v':'neg'}">${p.pl>=0?'+':'−'}${sym}${Math.abs(p.pl).toFixed(2)}</td>
+    </tr>`).join('');
+  const d = m.recentDeals[0];
+  if(d) document.getElementById('mt-deal').innerHTML =
+    `Last closed: ${esc(d.symbol)} on ${esc(d.date)} → <b>+${sym}${d.pl.toFixed(2)}</b>`;
+})();
+
+/* ---------- weather (live, client-side) ---------- */
+const WMO = {0:'Clear',1:'Mostly clear',2:'Partly cloudy',3:'Overcast',45:'Fog',48:'Icy fog',
+  51:'Light drizzle',53:'Drizzle',55:'Heavy drizzle',61:'Light rain',63:'Rain',65:'Heavy rain',
+  66:'Freezing rain',67:'Freezing rain',71:'Light snow',73:'Snow',75:'Heavy snow',77:'Snow grains',
+  80:'Showers',81:'Showers',82:'Heavy showers',85:'Snow showers',86:'Snow showers',
+  95:'Thunderstorm',96:'Thunderstorm',99:'Hailstorm'};
+const ICO = c => c===0?'☀️':c<=2?'🌤️':c===3?'☁️':c<=48?'🌫️':c<=57?'🌦️':c<=67?'🌧️':c<=77?'🌨️':c<=82?'🌧️':c<=86?'🌨️':'⛈️';
+
+function loadWeather(lat, lon, label){
+  document.getElementById('wx-place').textContent = label;
+  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&forecast_days=2&timezone=auto`)
+    .then(r=>r.json()).then(d=>{
+      const c = d.current;
+      document.getElementById('wx-temp').innerHTML = Math.round(c.temperature_2m) + '<sup>°</sup>';
+      document.getElementById('wx-meta').innerHTML =
+        `<b>${WMO[c.weather_code]||'—'} ${ICO(c.weather_code)}</b><br>` +
+        `feels ${Math.round(c.apparent_temperature)}° · wind ${Math.round(c.wind_speed_10m)} km/h<br>` +
+        `today ${Math.round(d.daily.temperature_2m_min[0])}° → ${Math.round(d.daily.temperature_2m_max[0])}°`;
+      const nowIdx = d.hourly.time.findIndex(t=>new Date(t)>new Date());
+      const hrs = [];
+      for(let i=nowIdx;i<nowIdx+5 && i<d.hourly.time.length;i+=1){
+        const hh = new Date(d.hourly.time[i]).getHours();
+        hrs.push(`<div class="wx-h">${String(hh).padStart(2,'0')}h<span>${ICO(d.hourly.weather_code[i])}</span><b>${Math.round(d.hourly.temperature_2m[i])}°</b></div>`);
+      }
+      document.getElementById('wx-hours').innerHTML = hrs.join('');
+    }).catch(()=>{ document.getElementById('wx-meta').textContent = 'Forecast unavailable offline.'; });
+}
+if(navigator.geolocation){
+  navigator.geolocation.getCurrentPosition(
+    p=>loadWeather(p.coords.latitude, p.coords.longitude, 'your location'),
+    ()=>loadWeather(DATA.location.lat, DATA.location.lon, DATA.location.name),
+    {timeout:4000});
+}else{
+  loadWeather(DATA.location.lat, DATA.location.lon, DATA.location.name);
+}
+</script>
+</body>
+</html>
