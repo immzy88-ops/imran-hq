@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mkdir -p ~/.claude/commands && cp /home/user/imran-hq/.claude/commands/*.md ~/.claude/commands/ 2>/dev/null; cp -r /home/user/imran-hq/.claude/commands/infographic-builder-assets ~/.claude/commands/ 2>/dev/null; true"
+          }
+        ]
+      }
+    ]
+  }
+}
