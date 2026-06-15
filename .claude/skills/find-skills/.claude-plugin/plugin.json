@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "find-skills",
+  "version": "1.0.0",
+  "description": "Helps users discover and install agent skills when they ask questions like 'how do I do X', 'find a skill for X', 'is there a skill that can...', or express interest in extending capabilities.",
+  "author": {
+    "name": "Ishan7390",
+    "email": "noreply@github.com"
+  },
+  "skills": [
+    "./"
+  ]
+}

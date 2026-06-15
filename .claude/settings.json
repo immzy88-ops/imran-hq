@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "mkdir -p ~/.claude/commands && cp /home/user/imran-hq/.claude/commands/*.md ~/.claude/commands/ 2>/dev/null; cp -r /home/user/imran-hq/.claude/commands/infographic-builder-assets ~/.claude/commands/ 2>/dev/null; true"
+            "command": "REPO=/home/user/imran-hq; mkdir -p ~/.claude/commands ~/.claude/skills; cp $REPO/.claude/commands/*.md ~/.claude/commands/ 2>/dev/null; cp -r $REPO/.claude/commands/infographic-builder-assets ~/.claude/commands/ 2>/dev/null; for d in $REPO/.claude/skills/*/; do name=$(basename $d); cp -r $d ~/.claude/skills/$name 2>/dev/null; done; true"
           }
         ]
       }

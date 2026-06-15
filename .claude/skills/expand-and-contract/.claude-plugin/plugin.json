@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "expand-and-contract",
+  "version": "1.0.0",
+  "description": "Help the user decide what's in scope for an idea by aggressively expanding it into every possible thing it COULD include, then sorting each item into one of four scope buckets (Core / Nice-to-have / M",
+  "author": {
+    "name": "Ishan7390",
+    "email": "noreply@github.com"
+  },
+  "skills": [
+    "./"
+  ]
+}

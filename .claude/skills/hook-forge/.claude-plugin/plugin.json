@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "hook-forge",
+  "version": "1.0.0",
+  "description": "Use when you need multiple hook options for any piece of content. Generates 10 hooks across different psychological triggers. Never start a piece without running this first. ",
+  "author": {
+    "name": "Ishan7390",
+    "email": "noreply@github.com"
+  },
+  "skills": [
+    "./"
+  ]
+}
