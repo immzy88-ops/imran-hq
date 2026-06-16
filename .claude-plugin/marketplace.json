@@ -1,0 +1,14 @@
+{
+  "name": "imran-hq-skills",
+  "description": "Imran's Claude skill collection — caveman, hook-forge, humanizer, decision-framer, infographic-builder, and more.",
+  "plugins": [
+    "plugins/caveman",
+    "plugins/decision-framer",
+    "plugins/expand-and-contract",
+    "plugins/find-skills",
+    "plugins/hook-forge",
+    "plugins/humanizer",
+    "plugins/infographic-builder",
+    "plugins/karpathy-guidelines"
+  ]
+}

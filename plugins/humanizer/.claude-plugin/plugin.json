@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "humanizer",
+  "version": "1.0.0",
+  "description": "Remove signs of AI-generated writing from text. Makes content sound natural and human-written by detecting and fixing AI writing patterns.",
+  "author": {
+    "name": "Ishan7390",
+    "email": "noreply@github.com"
+  },
+  "skills": [
+    "./"
+  ]
+}

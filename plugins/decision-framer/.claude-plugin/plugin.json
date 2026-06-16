@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "decision-framer",
+  "version": "1.0.0",
+  "description": "Use whenever the user is stuck on or weighing any significant decision \u2014 career moves, hires, big purchases, business bets. Reframes the decision into real options, key criteria, unknowns, and default outcome.",
+  "author": {
+    "name": "Ishan7390",
+    "email": "noreply@github.com"
+  },
+  "skills": [
+    "./"
+  ]
+}
