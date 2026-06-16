@@ -2,7 +2,7 @@
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "infographic-builder",
   "version": "1.0.0",
-  "description": "Build a single-file, self-contained HTML infographic from text content, data, or article material. Use this skill whenever the user asks for an infographic, visual summary, social graphic, one-pager, ",
+  "description": "Build a single-file self-contained HTML infographic from text content, data, or article material. Use when the user asks for an infographic, visual summary, or shareable graphic.",
   "author": {
     "name": "Ishan7390",
     "email": "noreply@github.com"
